@@ -248,6 +248,19 @@ section{padding:5.5rem 2rem}
 #testimonials{background:var(--bg)}
 .test-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
 .test-card{background:var(--card2);border:1px solid var(--border);border-radius:var(--r);padding:2rem;position:relative}
+
+/* WRITING */
+.writing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.4rem}
+.write-card{display:block;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.6rem 1.7rem;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .25s,box-shadow .3s;position:relative;overflow:hidden}
+.write-card:hover{transform:translateY(-4px);border-color:rgba(139,92,246,.5);box-shadow:0 18px 40px rgba(6,9,26,.5),0 0 0 1px rgba(139,92,246,.18)}
+.write-platform{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:.7rem}
+.write-platform::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent2)}
+.write-title{font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:.45rem;letter-spacing:-.005em}
+.write-sub{font-size:.85rem;color:var(--text2);line-height:1.6;margin-bottom:1rem}
+.write-meta{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;color:var(--muted);padding-top:.9rem;border-top:1px solid var(--border)}
+.write-tags{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.6rem;margin-bottom:1rem}
+.write-tags span{font-size:.65rem;padding:.2rem .55rem;border-radius:999px;background:rgba(139,92,246,.1);color:var(--accent);font-weight:600}
+.write-arrow{color:var(--accent);font-weight:700}
 .test-card::before{content:'"';position:absolute;top:1rem;right:1.5rem;font-size:5rem;color:var(--accent);opacity:.08;font-family:Georgia,serif;line-height:1}
 .test-body{font-style:italic;color:var(--text2);font-size:.9rem;line-height:1.85;margin-bottom:1.2rem}
 .test-body strong{color:var(--text);font-style:normal;font-weight:600}
@@ -312,6 +325,7 @@ footer{text-align:center;padding:1.8rem;background:var(--bg);border-top:1px soli
     <li><a href="#leadership">Leadership</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#patents">Patents</a></li>
+    <li><a href="#writing">Writing</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-cta">
@@ -1138,6 +1152,52 @@ footer{text-align:center;padding:1.8rem;background:var(--bg);border-top:1px soli
 
 <hr class="sep"/>
 
+<!-- WRITING -->
+<section id="writing">
+  <div class="wrap">
+    <p class="s-tag">Writing &amp; Thought Leadership</p>
+    <h2 class="s-title">Articles &amp; <span class="g">Essays</span></h2>
+    <p class="s-sub">Sharing perspectives on AI engineering, software factories, and the shifting role of the modern developer.</p>
+
+    <div class="writing-grid">
+      <a class="write-card" href="https://medium.com/@Murthy_Gabbiti/from-solo-dev-to-software-factory-9ad35c19c361" target="_blank">
+        <div class="write-platform">Medium · Mar 2026</div>
+        <div class="write-title">From Solo Dev to Software Factory</div>
+        <div class="write-sub" style="font-style:italic;color:var(--accent2);margin-bottom:.7rem">How Claude, BMAD, and Custom Skills Gave Me a Full Engineering Team</div>
+        <div class="write-sub">
+          A field report on a <strong>12× productivity jump</strong> by combining Claude, the BMAD method,
+          custom AI skills, and MCP integrations. Argues that implementation has become the cheapest
+          part of building software — and that developers must shift from <em>code writers</em> to
+          <em>problem framers</em> who evaluate architectural trade-offs.
+        </div>
+        <div class="write-tags">
+          <span>AI Engineering</span><span>Claude</span><span>BMAD</span><span>MCP</span><span>Productivity</span>
+        </div>
+        <div class="write-meta">
+          <span>~6 min read</span>
+          <span class="write-arrow">Read on Medium →</span>
+        </div>
+      </a>
+
+      <a class="write-card" href="https://medium.com/@Murthy_Gabbiti" target="_blank" style="border-style:dashed;background:transparent">
+        <div class="write-platform">Follow on Medium</div>
+        <div class="write-title">More essays in progress</div>
+        <div class="write-sub">
+          Upcoming pieces on production RAG patterns, agentic architectures with MCP, lessons from
+          building 0→1 fintech platforms, and how AI is reshaping the senior-engineer skill set.
+          Follow on Medium for new posts.
+        </div>
+        <div class="write-meta">
+          <span>@Murthy_Gabbiti</span>
+          <span class="write-arrow">Visit profile →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="wrap">
@@ -1275,6 +1335,7 @@ footer{text-align:center;padding:1.8rem;background:var(--bg);border-top:1px soli
       <a href="tel:4089315095" class="clink">📞 408-931-5095</a>
       <a href="https://www.linkedin.com/in/murthygabbiti" target="_blank" class="clink">💼 LinkedIn</a>
       <a href="https://patents.google.com/patent/US12579159B2" target="_blank" class="clink">📜 Patents</a>
+      <a href="https://medium.com/@Murthy_Gabbiti" target="_blank" class="clink">✍️ Medium</a>
     </div>
   </div>
 </section>
@@ -1307,7 +1368,7 @@ footer{text-align:center;padding:1.8rem;background:var(--bg);border-top:1px soli
   }, { threshold: 0.07 });
 
   document.querySelectorAll(
-    '.p-card,.impact-block,.proj-card,.lead-card,.tl-item,.pat-card,.test-card,.rec-card,.edu-card,.pillar'
+    '.p-card,.impact-block,.proj-card,.lead-card,.tl-item,.pat-card,.test-card,.rec-card,.edu-card,.pillar,.write-card'
   ).forEach((el, i) => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(24px)';
@@ -1315,7 +1376,7 @@ footer{text-align:center;padding:1.8rem;background:var(--bg);border-top:1px soli
     io.observe(el);
   });
 
-  document.querySelectorAll('.p-card,.proj-card,.lead-card,.impact-block,.pat-card,.test-card,.rec-card,.fcard').forEach(c => {
+  document.querySelectorAll('.p-card,.proj-card,.lead-card,.impact-block,.pat-card,.test-card,.rec-card,.fcard,.write-card').forEach(c => {
     c.addEventListener('mousemove', e => {
       const r = c.getBoundingClientRect();
       c.style.setProperty('--mx', `${e.clientX - r.left}px`);
