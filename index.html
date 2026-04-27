@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Murthy Gabbiti — Senior Staff Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#06091a;--bg2:#0d1126;--bg3:#121930;--bg4:#1a2340;
+  --border:rgba(139,92,246,0.18);--border2:rgba(6,182,212,0.15);
+  --accent:#8b5cf6;--accent2:#06b6d4;--accent3:#f59e0b;
+  --green:#10b981;--rose:#f43f5e;
+  --text:#f1f5f9;--text2:#cbd5e1;--muted:#64748b;
+  --card:rgba(17,22,40,0.9);--card2:rgba(26,35,64,0.7);
+  --r:16px;--r2:10px;
+  --shadow:0 0 60px rgba(139,92,246,0.12);
+  --glow:0 0 40px rgba(139,92,246,0.2);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:linear-gradient(var(--accent),var(--accent2));border-radius:3px}
+
+/* ── NAV ── */
+nav{position:fixed;inset:0 0 auto;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;background:rgba(6,9,26,.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-brand{display:flex;align-items:center;gap:.75rem}
+.nav-initials{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:#fff;flex-shrink:0}
+.nav-name{font-weight:700;font-size:.9rem;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.83rem;font-weight:500;transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--text)}
+
+/* ── UTILITY ── */
+.g{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.g2{background:linear-gradient(135deg,var(--accent2),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+hr.sep{border:none;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+section{padding:5.5rem 2rem}
+.wrap{max-width:1160px;margin:0 auto}
+.s-tag{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:700;margin-bottom:.5rem}
+.s-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;line-height:1.15;margin-bottom:.8rem}
+.s-sub{color:var(--muted);font-size:.92rem;max-width:560px;margin-bottom:3rem;line-height:1.8}
+
+/* ── BLOBS ── */
+.blob{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;opacity:.28}
+
+/* ── HERO ── */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:7rem 2rem 4rem}
+.b1{width:700px;height:700px;background:radial-gradient(circle,rgba(139,92,246,.6),transparent 65%);top:-150px;left:-200px}
+.b2{width:550px;height:550px;background:radial-gradient(circle,rgba(6,182,212,.45),transparent 65%);bottom:-100px;right:-120px}
+.b3{width:400px;height:400px;background:radial-gradient(circle,rgba(16,185,129,.35),transparent 65%);top:40%;left:45%}
+
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;align-items:center;max-width:1160px;width:100%}
+.hero-left{display:flex;flex-direction:column;gap:1.4rem}
+
+.status-pill{display:inline-flex;align-items:center;gap:.5rem;padding:.3rem .9rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);border-radius:999px;font-size:.72rem;font-weight:600;color:var(--green);width:fit-content;letter-spacing:.06em;text-transform:uppercase}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.4)}70%{box-shadow:0 0 0 6px rgba(16,185,129,0)}}
+
+.hero-name{font-size:clamp(2.4rem,5vw,4rem);font-weight:900;line-height:1.05;letter-spacing:-.02em}
+.hero-role{font-size:1.1rem;color:var(--accent2);font-weight:600;letter-spacing:.01em}
+
+.hero-pitch{color:var(--text2);font-size:.95rem;line-height:1.9;max-width:480px;border-left:2px solid rgba(139,92,246,.4);padding-left:1.2rem}
+
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{padding:.65rem 1.5rem;border-radius:9px;font-size:.88rem;font-weight:600;text-decoration:none;transition:all .22s;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:.4rem;font-family:inherit}
+.btn-p{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 10px 35px rgba(139,92,246,.38)}
+.btn-o{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-o:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+/* Hero pillars */
+.hero-pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem}
+.pillar{background:var(--card2);border:1px solid var(--border);border-radius:var(--r2);padding:1rem 1.2rem;transition:border-color .2s,transform .2s}
+.pillar:hover{border-color:rgba(139,92,246,.45);transform:translateY(-2px)}
+.pillar-icon{font-size:1.3rem;margin-bottom:.3rem}
+.pillar-label{font-size:.75rem;font-weight:700;color:var(--text);margin-bottom:.15rem}
+.pillar-desc{font-size:.7rem;color:var(--muted);line-height:1.5}
+
+/* Hero right — floating cards */
+.hero-right{position:relative;height:460px}
+.fcard{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1rem 1.3rem;backdrop-filter:blur(16px);box-shadow:var(--shadow)}
+.fcard:nth-child(1){animation:fl 5s ease-in-out infinite}
+.fcard:nth-child(2){animation:fl 5s ease-in-out infinite;animation-delay:1.2s}
+.fcard:nth-child(3){animation:fl 5s ease-in-out infinite;animation-delay:2.4s}
+.fcard:nth-child(4){animation:fl 5s ease-in-out infinite;animation-delay:.7s}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.fc-a{top:0;left:50%;transform:translateX(-50%);min-width:240px}
+.fc-b{top:160px;right:0;min-width:200px}
+.fc-c{top:280px;left:0;min-width:215px}
+.fc-d{bottom:10px;right:15px;min-width:185px}
+.fc-ico{font-size:1.5rem;margin-bottom:.3rem}
+.fc-h{font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:.1rem}
+.fc-s{font-size:.7rem;color:var(--muted)}
+.fc-v{font-size:1rem;font-weight:900;margin-top:.2rem;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── PILLARS SECTION ── */
+#pillars{background:var(--bg2)}
+.pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.p-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:2rem 1.5rem;text-align:center;transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden}
+.p-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(139,92,246,.05),transparent);opacity:0;transition:opacity .3s}
+.p-card:hover{transform:translateY(-5px);box-shadow:var(--glow);border-color:rgba(139,92,246,.4)}
+.p-card:hover::before{opacity:1}
+.p-ico{font-size:2.2rem;margin-bottom:.8rem}
+.p-num{font-size:2.5rem;font-weight:900;line-height:1;margin-bottom:.4rem}
+.p-lbl{font-size:.75rem;color:var(--muted);letter-spacing:.04em;line-height:1.5}
+
+/* ── ABOUT ── */
+#about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:4rem;align-items:start}
+.about-lead{font-size:1.1rem;line-height:1.95;color:var(--text2)}
+.about-lead p+p{margin-top:1rem}
+.quote-block{background:var(--card2);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;margin-top:1.8rem;position:relative}
+.quote-block::before{content:'"';position:absolute;top:-.2rem;left:1.2rem;font-size:4rem;color:var(--accent);opacity:.25;line-height:1;font-family:Georgia,serif}
+.quote-text{font-style:italic;color:var(--text2);font-size:.92rem;line-height:1.8;padding-top:.8rem}
+.quote-attr{font-size:.75rem;color:var(--accent2);font-weight:600;margin-top:.8rem}
+.quote-role2{font-size:.72rem;color:var(--muted)}
+
+.skills-panel{display:flex;flex-direction:column;gap:1.2rem}
+.skill-group{}
+.sg-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent2);font-weight:700;margin-bottom:.55rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tag{padding:.25rem .65rem;border-radius:6px;font-size:.74rem;font-weight:500;transition:all .2s;cursor:default}
+.tag-def{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.2);color:var(--text2)}
+.tag-def:hover{background:rgba(139,92,246,.22);border-color:var(--accent)}
+.tag-ai{background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.2);color:var(--accent2)}
+.tag-ai:hover{background:rgba(6,182,212,.2)}
+.tag-ops{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);color:var(--green)}
+
+/* ── IMPACT STORY ── */
+#impact{background:var(--bg2)}
+.impact-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+.impact-block{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:2rem;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.impact-block::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.impact-block:hover{transform:translateY(-4px);box-shadow:var(--glow)}
+.impact-block:hover::after{transform:scaleX(1)}
+.ib-ico{font-size:2rem;margin-bottom:.9rem}
+.ib-title{font-size:1rem;font-weight:800;margin-bottom:.6rem}
+.ib-body{font-size:.86rem;color:var(--muted);line-height:1.8}
+.ib-body strong{color:var(--text2);font-weight:600}
+
+/* ── PROJECTS ── */
+#projects{background:var(--bg)}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:2rem;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .32s}
+.proj-card:hover{transform:translateY(-5px);box-shadow:var(--glow);border-color:rgba(139,92,246,.4)}
+.proj-card:hover::before{transform:scaleX(1)}
+.proj-card.span2{grid-column:span 2}
+.proj-header{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:.9rem}
+.proj-ico{font-size:1.7rem;flex-shrink:0;margin-top:.1rem}
+.proj-meta-right{flex:1}
+.proj-badges{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.4rem}
+.badge{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:.16rem .55rem;border-radius:5px}
+.b-ai  {background:rgba(6,182,212,.14);color:var(--accent2)}
+.b-arch{background:rgba(139,92,246,.14);color:var(--accent)}
+.b-perf{background:rgba(245,158,11,.14);color:var(--accent3)}
+.b-fin {background:rgba(16,185,129,.14);color:var(--green)}
+.b-oss {background:rgba(168,85,247,.14);color:#c084fc}
+.b-ged {background:rgba(244,63,94,.14);color:var(--rose)}
+.proj-title{font-size:1.05rem;font-weight:800;line-height:1.3}
+.proj-org{font-size:.76rem;color:var(--muted);margin-top:.15rem}
+.proj-desc{color:var(--text2);font-size:.87rem;line-height:1.8;margin-bottom:1.1rem}
+.proj-desc strong{color:var(--text);font-weight:600}
+.kpis{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:1.1rem}
+.kpi{background:rgba(139,92,246,.07);border:1px solid var(--border);border-radius:8px;padding:.5rem .9rem;text-align:center;min-width:70px}
+.kpi-v{font-size:.95rem;font-weight:800;color:var(--accent);display:block}
+.kpi-l{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;display:block;margin-top:.05rem}
+.tech-row{display:flex;flex-wrap:wrap;gap:.35rem}
+.tp{padding:.17rem .58rem;border-radius:4px;font-size:.7rem;font-family:'JetBrains Mono',monospace;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--muted)}
+
+/* ── LEADERSHIP ── */
+#leadership{background:var(--bg2)}
+.lead-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.lead-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;transition:transform .25s,border-color .25s}
+.lead-card:hover{transform:translateY(-3px);border-color:rgba(139,92,246,.4)}
+.lead-ico{font-size:2rem;margin-bottom:.8rem}
+.lead-title{font-size:.95rem;font-weight:800;margin-bottom:.6rem}
+.lead-body{font-size:.84rem;color:var(--muted);line-height:1.8}
+.lead-body strong{color:var(--text2);font-weight:600}
+
+/* ── TIMELINE ── */
+#experience{background:var(--bg)}
+.tl{position:relative;padding-left:2.6rem}
+.tl::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2),rgba(6,182,212,.1))}
+.tl-item{position:relative;margin-bottom:3rem}
+.tl-dot{position:absolute;left:-2.6rem;top:.35rem;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:3px solid var(--bg);box-shadow:0 0 14px rgba(139,92,246,.5)}
+.tl-role{font-size:1rem;font-weight:800}
+.tl-org{font-size:.82rem;color:var(--accent2);font-weight:600}
+.tl-period{font-size:.75rem;color:var(--muted);margin-bottom:.6rem}
+.tl-points{list-style:none;margin-top:.5rem}
+.tl-points li{color:var(--text2);font-size:.86rem;line-height:1.75;padding-left:1.2rem;position:relative;margin-bottom:.25rem}
+.tl-points li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:.66rem;top:.24rem}
+.tl-tag{display:inline-block;margin-top:.5rem;font-size:.7rem;font-weight:700;padding:.17rem .62rem;border-radius:5px;background:rgba(245,158,11,.12);color:var(--accent3);border:1px solid rgba(245,158,11,.25)}
+
+/* ── PATENTS ── */
+#patents{background:var(--bg2)}
+.pat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.pat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.7rem;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.pat-card:hover{transform:translateY(-4px);box-shadow:var(--glow)}
+.pat-status{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:.17rem .55rem;border-radius:4px;width:fit-content;margin-bottom:.85rem}
+.st-g{background:rgba(16,185,129,.14);color:var(--green);border:1px solid rgba(16,185,129,.25)}
+.st-f{background:rgba(245,158,11,.14);color:var(--accent3);border:1px solid rgba(245,158,11,.25)}
+.pat-num{font-size:.7rem;color:var(--accent);font-family:'JetBrains Mono',monospace;margin-bottom:.35rem}
+.pat-title{font-size:.92rem;font-weight:700;line-height:1.4;margin-bottom:.45rem}
+.pat-desc{font-size:.8rem;color:var(--muted);line-height:1.65}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:var(--bg)}
+.test-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.test-card{background:var(--card2);border:1px solid var(--border);border-radius:var(--r);padding:2rem;position:relative}
+.test-card::before{content:'"';position:absolute;top:1rem;right:1.5rem;font-size:5rem;color:var(--accent);opacity:.08;font-family:Georgia,serif;line-height:1}
+.test-body{font-style:italic;color:var(--text2);font-size:.9rem;line-height:1.85;margin-bottom:1.2rem}
+.test-body strong{color:var(--text);font-style:normal;font-weight:600}
+.test-author{font-size:.78rem;font-weight:700;color:var(--accent2)}
+.test-role{font-size:.73rem;color:var(--muted)}
+
+/* ── RECOGNITION ── */
+#recognition{background:var(--bg2)}
+.rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.rec-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.7rem;display:flex;flex-direction:column;gap:.55rem;transition:transform .25s,border-color .25s}
+.rec-card:hover{transform:translateY(-3px);border-color:rgba(139,92,246,.4)}
+.rec-ico{font-size:1.9rem}
+.rec-title{font-size:.9rem;font-weight:800}
+.rec-body{font-size:.8rem;color:var(--muted);line-height:1.65}
+
+/* ── EDUCATION ── */
+#education{background:var(--bg)}
+.edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;display:flex;gap:1rem;align-items:flex-start;transition:transform .25s}
+.edu-card:hover{transform:translateY(-3px)}
+.edu-ico{font-size:2.2rem;flex-shrink:0}
+.edu-degree{font-size:.97rem;font-weight:800}
+.edu-school{font-size:.83rem;color:var(--accent2);font-weight:600}
+.edu-det{font-size:.78rem;color:var(--muted);margin-top:.15rem}
+.edu-gpa{display:inline-block;margin-top:.45rem;padding:.17rem .55rem;border-radius:4px;font-size:.72rem;font-weight:700;background:rgba(245,158,11,.12);color:var(--accent3)}
+
+/* ── CONTACT ── */
+#contact{background:var(--bg2);text-align:center}
+.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+.clink{display:flex;align-items:center;gap:.45rem;padding:.7rem 1.4rem;border-radius:9px;background:var(--card);border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:.86rem;font-weight:500;transition:all .22s}
+.clink:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+footer{text-align:center;padding:1.8rem;background:var(--bg);border-top:1px solid var(--border);font-size:.74rem;color:var(--muted)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  nav{padding:1rem 1.5rem}.nav-links{display:none}
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-pitch{margin:0 auto}.hero-btns{justify-content:center}
+  .hero-pillars{grid-template-columns:repeat(2,1fr)}.hero-right{display:none}
+  .pillars-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr}.impact-cols{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}.proj-card.span2{grid-column:span 1}
+  .lead-grid,.pat-grid,.rec-grid,.test-grid{grid-template-columns:1fr}
+  .edu-grid{grid-template-columns:1fr}
+}
+@media(max-width:580px){.pillars-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-initials">AMG</div>
+    <span class="nav-name">Anjaneya Murthy Gabbiti</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#patents">Patents</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+<h1 class="hero-name">Anjaneya<br/><span class="g">Murthy</span><br/>Gabbiti</h1>
+      <p class="hero-role">Senior Staff Software Engineer &amp; Architect</p>
+      <p class="hero-pitch">
+        13+ years building fintech platforms, AI agents, and microservice ecosystems at Intuit.
+        Founding engineer. Patented inventor. Architect of systems that serve millions of small businesses.
+        The engineer teams turn to when no one else can solve it.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-p">&#9654;&nbsp; See My Work</a>
+        <a href="#contact" class="btn btn-o">Get In Touch</a>
+      </div>
+      <div class="hero-pillars">
+        <div class="pillar"><div class="pillar-icon">🏗️</div><div class="pillar-label">System Architect</div><div class="pillar-desc">Monolith → microservices at Intuit scale</div></div>
+        <div class="pillar"><div class="pillar-icon">🤖</div><div class="pillar-label">AI/ML Engineer</div><div class="pillar-desc">RAG, Agents, GenAI, Native ML in production</div></div>
+        <div class="pillar"><div class="pillar-icon">🧭</div><div class="pillar-label">Technical Leader</div><div class="pillar-desc">Cross-org, cross-country team alignment</div></div>
+        <div class="pillar"><div class="pillar-icon">🎓</div><div class="pillar-label">Mentor &amp; Coach</div><div class="pillar-desc">Engineers, PMs &amp; early-career talent</div></div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="fcard fc-a">
+        <div class="fc-ico">📜</div>
+        <div class="fc-h">US Patents — Granted</div>
+        <div class="fc-s">LLM Onboarding · Personalization · Distributed Systems</div>
+        <div class="fc-v">3 Patents Total</div>
+      </div>
+      <div class="fcard fc-b">
+        <div class="fc-ico">🤖</div>
+        <div class="fc-h">AI Accuracy</div>
+        <div class="fc-s">Email classifier: baseline vs Murthy.ai</div>
+        <div class="fc-v">70% → 90%</div>
+      </div>
+      <div class="fcard fc-c">
+        <div class="fc-ico">⚡</div>
+        <div class="fc-h">Banking Page Perf</div>
+        <div class="fc-s">TP99 after full React rewrite</div>
+        <div class="fc-v">17s → 8s</div>
+      </div>
+      <div class="fcard fc-d">
+        <div class="fc-ico">🏆</div>
+        <div class="fc-h">PayPal Hackathon Winner</div>
+        <div class="fc-s">ANDE Connect · 2016</div>
+        <div class="fc-v">🥇 1st Place</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<!-- PILLARS -->
+<section id="pillars">
+  <div class="wrap">
+    <div class="pillars-grid">
+      <div class="p-card">
+        <div class="p-ico">🧠</div>
+        <div class="p-num g">13+</div>
+        <div class="p-lbl">Years of professional experience in full-stack &amp; systems engineering</div>
+      </div>
+      <div class="p-card">
+        <div class="p-ico">📜</div>
+        <div class="p-num g">3</div>
+        <div class="p-lbl">US Patents — 2 granted, 1 filed — across AI, LLM, and distributed systems</div>
+      </div>
+      <div class="p-card">
+        <div class="p-ico">⚡</div>
+        <div class="p-num g">53%</div>
+        <div class="p-lbl">TP99 latency reduction on QBO banking page rewrite</div>
+      </div>
+      <div class="p-card">
+        <div class="p-ico">🎯</div>
+        <div class="p-num g">90%</div>
+        <div class="p-lbl">AI model accuracy achieved — up from 70% baseline on email classifier</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <p class="s-tag">About Me</p>
+    <h2 class="s-title">Engineer. Architect.<br/><span class="g">The Go-To Person.</span></h2>
+    <div class="about-grid">
+      <div>
+        <div class="about-lead">
+          <p>
+            I'm a Senior Staff Software Engineer at Intuit with over 13 years building fintech products
+            that serve millions of small businesses globally. I was the <strong>founding engineer of the
+            EPG (Emerging Products Group)</strong> team, responsible for building a new Financing-as-a-Service
+            platform from scratch — bootstrapping the team's entire development infrastructure and
+            onboarding every new engineer who joined.
+          </p>
+          <p>
+            My work spans the full stack: React/TypeScript frontends, Spring Boot/Kafka/Cassandra
+            microservices, and now production AI systems using RAG, Graph RAG, agentic architectures,
+            and custom ML models. I've decomposed multiple monoliths into scalable microservices,
+            led mission-critical 3P integrations, authored technical architecture decisions across
+            organizations, and shipped features used by millions.
+          </p>
+          <p>
+            I hold 3 patents, won the PayPal Opportunity Hack, earned a 3.9 GPA in my Master's at SJSU,
+            and have been consistently described by managers and peers as the person they turn to
+            for the hardest, highest-stakes engineering challenges.
+          </p>
+        </div>
+        <div class="quote-block">
+          <p class="quote-text">
+            "Murthy is my indispensable go-to person for any task. I trust implicitly that he will either
+            complete it swiftly and effectively or expertly guide someone else. His reliability and
+            problem-solving skills are invaluable — a cornerstone of our team's success."
+          </p>
+          <div class="quote-attr">Manager, Intuit EPG Team</div>
+          <div class="quote-role2">Senior Staff Promotion Assessment · 2025</div>
+        </div>
+      </div>
+
+      <div class="skills-panel">
+        <div class="skill-group">
+          <div class="sg-label">Languages</div>
+          <div class="tags">
+            <span class="tag tag-def">Java</span><span class="tag tag-def">Kotlin</span>
+            <span class="tag tag-def">Python</span><span class="tag tag-def">TypeScript</span>
+            <span class="tag tag-def">JavaScript</span><span class="tag tag-def">C++</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Frontend</div>
+          <div class="tags">
+            <span class="tag tag-def">React</span><span class="tag tag-def">Redux</span>
+            <span class="tag tag-def">GraphQL</span><span class="tag tag-def">Node.js</span>
+            <span class="tag tag-def">HTML5 / CSS3</span><span class="tag tag-def">AngularJS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Backend &amp; Data</div>
+          <div class="tags">
+            <span class="tag tag-def">Spring Boot</span><span class="tag tag-def">Kafka</span>
+            <span class="tag tag-def">Cassandra</span><span class="tag tag-def">DynamoDB</span>
+            <span class="tag tag-def">MongoDB</span><span class="tag tag-def">MySQL</span>
+            <span class="tag tag-def">RabbitMQ</span><span class="tag tag-def">AWS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">AI / ML</div>
+          <div class="tags">
+            <span class="tag tag-ai">RAG</span><span class="tag tag-ai">Graph RAG</span>
+            <span class="tag tag-ai">Agentic Architecture</span>
+            <span class="tag tag-ai">MCP Servers</span><span class="tag tag-ai">GenAI</span>
+            <span class="tag tag-ai">Native ML Models</span><span class="tag tag-ai">AI Workbench</span>
+            <span class="tag tag-ai">LLM Fine-tuning</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Observability &amp; Ops</div>
+          <div class="tags">
+            <span class="tag tag-ops">PagerDuty</span><span class="tag tag-ops">Splunk</span>
+            <span class="tag tag-ops">WaveFront</span><span class="tag tag-ops">Cypress</span>
+            <span class="tag tag-ops">Jenkins</span><span class="tag tag-ops">AWS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<!-- IMPACT STORY -->
+<section id="impact">
+  <div class="wrap">
+    <p class="s-tag">What I've Built</p>
+    <h2 class="s-title">Engineering <span class="g">Impact</span></h2>
+    <p class="s-sub">Highlights across product, platform, AI, and operational excellence.</p>
+
+    <div class="impact-cols">
+      <div class="impact-block">
+        <div class="ib-ico">💡</div>
+        <div class="ib-title">Financing-as-a-Service — Built from Zero</div>
+        <div class="ib-body">
+          As <strong>founding engineer</strong> of the EPG team, I built an entirely new Financing-as-a-Service
+          platform from scratch — identifying a major market opportunity in B2C and B2B financing for
+          QBO estimate recipients. Bootstrapped all dev infrastructure (DevPortal, Jira, ServiceNow, PagerDuty),
+          onboarded every engineer, and coordinated across <strong>9+ repositories and 10+ teams</strong>
+          globally (CK, APS, CI, QBO, OINP, C360, IXP, Sales). Ran <strong>13+ experiments</strong>
+          to refine product-market fit. Extended the platform to <strong>ISVs like Houzz and Knowify</strong>,
+          opening new partner channels with integration timelines under 2 months.
+        </div>
+      </div>
+
+      <div class="impact-block">
+        <div class="ib-ico">🤖</div>
+        <div class="ib-title">AI &amp; ML — Production Systems</div>
+        <div class="ib-body">
+          Built a <strong>native ML email classifier</strong> (Murthy.ai) from scratch using Intuit AI Workbench,
+          incorporating merchant, estimate, and transactional context. Improved accuracy from
+          <strong>70% to 90%</strong> vs the baseline SEAL model. Ran a parallel GenAI classifier for comparison.
+          Built <strong>RAG and Graph RAG pipelines</strong> and authored MCP servers for production agentic workflows.
+          Improved CK member match rate from <strong>16% → 23%</strong> using Resolved Identity Graph
+          — projected to lift top-of-funnel by 40%.
+          Demoed AI Agent at GED Apr 2025 ("EPG Thinking Machines"). Filed a patent on LLM-based onboarding.
+        </div>
+      </div>
+
+      <div class="impact-block">
+        <div class="ib-ico">⚡</div>
+        <div class="ib-title">Performance &amp; Platform Architecture</div>
+        <div class="ib-body">
+          Led the complete rewrite of the QBO banking page from legacy DOJO to TypeScript + React,
+          cutting <strong>TP99 from 17s to 8s (53% reduction)</strong> with <strong>~99% unit test coverage</strong>.
+          Introduced a novel <strong>service-layer pattern</strong> that unlocked parallel frontend/backend development
+          and became the template for subsequent decompositions.
+          Designed and delivered <strong>Banking UI decomposition, Bank Connect decomposition</strong>,
+          Automated Transaction Service, Settings Service, and banking decomposition on Stage.
+          Architected the <strong>Bank Transaction Service</strong> design doc — the reference architecture
+          for banking across multiple teams covering event-driven design, DynamoDB vs. Elasticsearch tradeoffs,
+          capacity planning, and domain models.
+        </div>
+      </div>
+
+      <div class="impact-block">
+        <div class="ib-ico">🔌</div>
+        <div class="ib-title">3P Integrations &amp; ISV Externalization</div>
+        <div class="ib-body">
+          Led the <strong>mission-critical Square integration</strong> — coordinating mobile, receipts,
+          D&amp;P teams and data acquisition layers. Designed and built the <strong>templatized 3P onboarding framework</strong>
+          that drastically reduced integration complexity for new partners.
+          Led <strong>ISV externalization</strong> — proposed integration patterns, built reference
+          implementations and POCs, signed contracts with <strong>Houzz, Knowify</strong>, and others
+          to extend QBO financing capabilities beyond the Intuit domain using AppFabric iframe embedding.
+          Also worked on Shopify, eBay, and PayPal integrations.
+        </div>
+      </div>
+
+      <div class="impact-block">
+        <div class="ib-ico">🔭</div>
+        <div class="ib-title">Observability &amp; Operational Excellence</div>
+        <div class="ib-body">
+          Introduced <strong>PagerDuty, Splunk dashboards, WaveFront metrics, and distributed tracing</strong>
+          to teams that had none — shifting them from reactive to proactive incident management.
+          Built the CSE Product Dashboard, Kafka Messages Tracker Dashboard, on-call runbooks,
+          and banking performance dashboards. Introduced <strong>Cypress testing framework, JUnit5 + Mockito,
+          Spring Boot integration tests</strong>, and GenAI-based PR code reviews to accelerate team velocity.
+          Maintained ~99% test coverage on all UI plugins. Worked on OLB performance test suites on monolith.
+        </div>
+      </div>
+
+      <div class="impact-block">
+        <div class="ib-ico">🎤</div>
+        <div class="ib-title">Innovation &amp; GED Recognition</div>
+        <div class="ib-body">
+          Multiple GED projects recognized at the highest levels:
+          <strong>Solopreneur onboarding + GenAI</strong> demoed at SOC with a patent filed for the concept.
+          <strong>Accounting Templates</strong> demoed at QBConnect, warmly received by SBSEG accountants.
+          <strong>EPG AI Agent (Apr 2025)</strong> — agentic architecture for merchant education ("Thinking Machines").
+          <strong>QBLite</strong> — demonstrated lighter QuickBooks experience built on Google Sheets API in a week.
+          <strong>URL shortener + IntuitAssist integration</strong> — shipped within a single GED sprint.
+          Consistently delivers multiple working demos per GED under tight time pressure.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <p class="s-tag">Selected Work</p>
+    <h2 class="s-title">Projects &amp; <span class="g">Deliveries</span></h2>
+    <p class="s-sub">A cross-section of technically significant projects spanning AI, fintech architecture, and platform engineering.</p>
+
+    <div class="proj-grid">
+
+      <!-- FaaS -->
+      <div class="proj-card span2">
+        <div class="proj-header">
+          <div class="proj-ico">🏗️</div>
+          <div class="proj-meta-right">
+            <div class="proj-badges">
+              <span class="badge b-fin">Founding Engineer</span>
+              <span class="badge b-arch">Platform</span>
+              <span class="badge b-ai">AI · Fintech</span>
+            </div>
+            <div class="proj-title">Financing-as-a-Service (FaaS) — EPG Platform</div>
+            <div class="proj-org">Intuit Emerging Products Group · Staff Engineer · 2022–2025</div>
+          </div>
+        </div>
+        <div class="proj-desc">
+          As founding engineer, I built an entirely new B2C and B2B financing platform for QBO from zero.
+          The product delivers personalized financing offers (consumer loans, credit cards, term loans, LOC, QB Capital)
+          to QBO estimate recipients via a threaded email experience and a financing web app.
+          <strong>Coordinated 9+ repositories, 10+ global teams</strong> including CreditKarma, APS, CI, QBO, OINP, C360, IXP, and Sales.
+          Led ISV externalization: built reference implementations, proposed integration patterns to partners,
+          and signed contracts with <strong>Houzz, Knowify</strong> and others — enabling go-live in under 2 months.
+          Also built <strong>QB Capital embedded widget</strong>, CK member identity integration, and seamless
+          registration flow for non-CK members.
+        </div>
+        <div class="kpis">
+          <div class="kpi"><span class="kpi-v">9+</span><span class="kpi-l">Repos coordinated</span></div>
+          <div class="kpi"><span class="kpi-v">10+</span><span class="kpi-l">Teams collaborated</span></div>
+          <div class="kpi"><span class="kpi-v">13+</span><span class="kpi-l">Experiments</span></div>
+          <div class="kpi"><span class="kpi-v">3+</span><span class="kpi-l">ISV contracts</span></div>
+          <div class="kpi"><span class="kpi-v">&lt;2mo</span><span class="kpi-l">ISV go-live</span></div>
+        </div>
+        <div class="tech-row">
+          <span class="tp">Spring Boot</span><span class="tp">Kafka</span><span class="tp">DynamoDB</span>
+          <span class="tp">React</span><span class="tp">TypeScript</span><span class="tp">GraphQL</span>
+          <span class="tp">PagerDuty</span><span class="tp">Splunk</span><span class="tp">AppFabric</span>
+        </div>
+      </div>
+
+      <!-- AI Classifier -->
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-ico">🧠</div>
+          <div class="proj-meta-right">
+            <div class="proj-badges"><span class="badge b-ai">Native ML</span><span class="badge b-ai">GenAI</span></div>
+            <div class="proj-title">AI Email Classifier — "Murthy.ai"</div>
+            <div class="proj-org">Intuit EPG · GED Fall 2024</div>
+          </div>
+        </div>
+        <div class="proj-desc">
+          Identified that the existing SEAL model had no contextual awareness and limited accuracy.
+          Built a <strong>native ML classifier</strong> using Intuit AI Workbench incorporating merchant,
+          estimate, and transaction-level context. Built a parallel <strong>GenAI classifier</strong>
+          and ran a rigorous three-way comparison. New model significantly outperformed the baseline.
+          Filed a patent on the LLM-based onboarding concept that emerged from this work.
+        </div>
+        <div class="kpis">
+          <div class="kpi"><span class="kpi-v">70%</span><span class="kpi-l">Baseline (SEAL)</span></div>
+          <div class="kpi"><span class="kpi-v">90%</span><span class="kpi-l">Murthy.ai</span></div>
+          <div class="kpi"><span class="kpi-v">+40%</span><span class="kpi-l">Funnel lift proj.</span></div>
+        </div>
+        <div class="tech-row">
+          <span class="tp">Python</span><span class="tp">AI Workbench</span>
+          <span class="tp">Native ML</span><span class="tp">GenAI</span><span class="tp">Classification</span>
+        </div>
+      </div>
+
+      <!-- Banking Decomp -->
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-ico">⚡</div>
+          <div class="proj-meta-right">
+            <div class="proj-badges"><span class="badge b-perf">Performance</span><span class="badge b-arch">Architecture</span></div>
+            <div class="proj-title">Banking UI Decomposition — 17s → 8s TP99</div>
+            <div class="proj-org">Intuit Staff Engineer · 2021</div>
+          </div>
+        </div>
+        <div class="proj-desc">
+          Led full rewrite of QBO banking page from DOJO to TypeScript + React with modern Redux
+          patterns, memoization, and reusable widgets. Introduced a <strong>novel service-layer
+          pattern</strong> separating stage and monolith backends that became the architectural
+          standard. Achieved <strong>~99% unit test coverage</strong>, cut TP99 by 53%,
+          and dramatically improved developer productivity across the team.
+        </div>
+        <div class="kpis">
+          <div class="kpi"><span class="kpi-v">17s→8s</span><span class="kpi-l">TP99</span></div>
+          <div class="kpi"><span class="kpi-v">~99%</span><span class="kpi-l">Test coverage</span></div>
+          <div class="kpi"><span class="kpi-v">53%</span><span class="kpi-l">Latency reduction</span></div>
+        </div>
+        <div class="tech-row">
+          <span class="tp">React</span><span class="tp">TypeScript</span><span class="tp">Redux</span>
+          <span class="tp">GraphQL</span><span class="tp">Jest</span><span class="tp">WaveFront</span>
+        </div>
+      </div>
+
+      <!-- Identity Graph -->
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-ico">🎯</div>
+          <div class="proj-meta-right">
+            <div class="proj-badges"><span class="badge b-ai">Identity Graph</span><span class="badge b-arch">Platform</span></div>
+            <div class="proj-title">CK Member Match Rate — Resolved Identity Graph</div>
+            <div class="proj-org">Intuit EPG · 2024</div>
+          </div>
+        </div>
+        <div class="proj-desc">
+          Identified a critical top-of-funnel problem: low CK member match rate was limiting personalized
+          offer delivery. Collaborated with <strong>CK, APS, Accounts Service, CI, and RI teams</strong>
+          globally to integrate the Resolved Identity Graph. Built a reference implementation,
+          integrated it into the product, and transitioned ownership to CK.
+        </div>
+        <div class="kpis">
+          <div class="kpi"><span class="kpi-v">16%→23%</span><span class="kpi-l">Match rate</span></div>
+          <div class="kpi"><span class="kpi-v">+40%</span><span class="kpi-l">Top-of-funnel lift</span></div>
+        </div>
+        <div class="tech-row">
+          <span class="tp">Identity Graph</span><span class="tp">Spring Boot</span>
+          <span class="tp">REST</span><span class="tp">Cross-team</span>
+        </div>
+      </div>
+
+      <!-- Lending Agent -->
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-ico">🤖</div>
+          <div class="proj-meta-right">
+            <div class="proj-badges"><span class="badge b-ai">RAG · Agentic</span><span class="badge b-arch">Lending</span></div>
+            <div class="proj-title">QBO Lending Agent &amp; Point-of-Sale Financing</div>
+            <div class="proj-org">Intuit — Senior Staff Engineer · Aug 2025–Present</div>
+          </div>
+        </div>
+        <div class="proj-desc">
+          Architecting Lending-as-a-Service for QBO — including a <strong>conversational lending agent</strong>
+          in QBO's immersive chat experience available to all QBO users. Building production RAG and
+          Graph RAG pipelines, <strong>MCP servers</strong>, and agentic workflows. Data Steward &amp;
+          API Steward for Financing Services capability. Designing APIs and models for multiple lending microservices.
+        </div>
+        <div class="tech-row">
+          <span class="tp">RAG</span><span class="tp">Graph RAG</span><span class="tp">MCP Servers</span>
+          <span class="tp">Spring Boot</span><span class="tp">Kafka</span><span class="tp">Cassandra</span>
+          <span class="tp">Python</span><span class="tp">Kotlin</span>
+        </div>
+      </div>
+
+      <!-- GED Projects -->
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-ico">🚀</div>
+          <div class="proj-meta-right">
+            <div class="proj-badges"><span class="badge b-ged">GED Innovation</span><span class="badge b-ai">AI</span></div>
+            <div class="proj-title">GED Projects — Recognized Company-Wide</div>
+            <div class="proj-org">Intuit Engineering Days · 2022–2025</div>
+          </div>
+        </div>
+        <div class="proj-desc">
+          Delivered multiple award-winning GED projects across years:
+          <strong>Solopreneur GenAI Onboarding</strong> (demoed at SOC — patent filed) ·
+          <strong>Accounting Templates</strong> (demoed at QBConnect, recognized by SBSEG accountants) ·
+          <strong>EPG AI Agent / Thinking Machines (Apr 2025)</strong> (agentic architecture for merchant education) ·
+          <strong>QBLite</strong> (lighter QB on Sheets API, built in a week) ·
+          <strong>URL Shortener + IntuitAssist integration</strong> — shipped in a single sprint.
+        </div>
+        <div class="tech-row">
+          <span class="tp">Agentic AI</span><span class="tp">GenAI</span><span class="tp">LLM</span>
+          <span class="tp">React</span><span class="tp">Node.js</span><span class="tp">Spring Boot</span>
+        </div>
+      </div>
+
+      <!-- Security Mgmt System -->
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-ico">🔒</div>
+          <div class="proj-meta-right">
+            <div class="proj-badges"><span class="badge b-oss">Academic</span><span class="badge b-arch">Distributed</span></div>
+            <div class="proj-title">Security Management System</div>
+            <div class="proj-org">San Jose State University · Spring 2015</div>
+          </div>
+        </div>
+        <div class="proj-desc">
+          Distributed web application with REST APIs for real-time guard patrol tracking.
+          Managed buildings, guards, clients, alerts, and reports. Implemented sessions, local storage,
+          connection pooling, and client/server caching. Integrated Google Maps for live positioning.
+        </div>
+        <div class="tech-row">
+          <span class="tp">Node.js</span><span class="tp">AngularJS</span><span class="tp">MySQL</span>
+          <span class="tp">RabbitMQ</span><span class="tp">Bootstrap</span><span class="tp">Google Maps</span>
+        </div>
+      </div>
+
+      <!-- ANDE Connect -->
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-ico">🏆</div>
+          <div class="proj-meta-right">
+            <div class="proj-badges"><span class="badge b-ged">🥇 Hackathon Winner</span></div>
+            <div class="proj-title">ANDE Connect — PayPal Opportunity Hack</div>
+            <div class="proj-org">PayPal · July 2016 · First Place</div>
+          </div>
+        </div>
+        <div class="proj-desc">
+          Won first place at PayPal's global Opportunity Hack with ANDE Connect — a platform connecting
+          small entrepreneurs in emerging markets with resources, mentors, and financial tools.
+          Built full-stack in a weekend, demonstrating rapid prototyping, customer empathy, and
+          product thinking under extreme time constraints.
+        </div>
+        <div class="tech-row">
+          <span class="tp">Full-Stack</span><span class="tp">PayPal APIs</span><span class="tp">Rapid Prototyping</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="wrap">
+    <p class="s-tag">People &amp; Influence</p>
+    <h2 class="s-title">Leadership &amp; <span class="g">Mentorship</span></h2>
+    <p class="s-sub">Technical leadership isn't just about code — it's about making teams, systems, and people better.</p>
+
+    <div class="lead-grid">
+      <div class="lead-card">
+        <div class="lead-ico">🌱</div>
+        <div class="lead-title">Engineering Mentor</div>
+        <div class="lead-body">
+          Actively mentored <strong>engineers at all levels</strong> — junior through senior — both within EPG and across QBAA.
+          Unblocked engineers on complex domain and technical questions. Known for approachability and
+          the ability to explain complex systems clearly. Also mentored a new <strong>Product Manager</strong>
+          through Intuit onboarding as a PD mentor — sharing strategies for effective collaboration.
+        </div>
+      </div>
+
+      <div class="lead-card">
+        <div class="lead-ico">🧭</div>
+        <div class="lead-title">Cross-Org Technical Lead</div>
+        <div class="lead-body">
+          Acted as <strong>technical contact point across teams and organizations</strong> for banking,
+          financing, and accounting domains. Drove tech decisions across QBAT org.
+          Collaborated with App Foundations, FITs, AA Service, Stage Transactions, QBCapital, VIN,
+          RI, CK, CP, OINP, Identity, and Sales teams — often as the bridge resolving ambiguity
+          between PMs, architects, and engineering.
+        </div>
+      </div>
+
+      <div class="lead-card">
+        <div class="lead-ico">🏗️</div>
+        <div class="lead-title">Founding Team Builder</div>
+        <div class="lead-body">
+          As <strong>founding engineer of EPG</strong>, I set up the team's entire development ecosystem from zero —
+          DevPortal, Jira, ServiceNow, PagerDuty, CI/CD pipelines — and personally onboarded
+          <strong>every new engineer</strong> who joined the team. Created a culture of fast iteration,
+          high test coverage, and proactive monitoring that the team continues to operate on today.
+        </div>
+      </div>
+
+      <div class="lead-card">
+        <div class="lead-ico">🔬</div>
+        <div class="lead-title">Design Consultant</div>
+        <div class="lead-body">
+          Regularly brought in as a <strong>design consultant by partner teams</strong> — App Foundations,
+          FITs, AA Service, Stage Transactions — to assist with system decomposition and architecture decisions.
+          Authored multiple ITADs (Intuit Technical Architecture Decisions) on accounting, banking, and
+          modernization. Authored the comprehensive Bank Transaction Service design referenced by multiple teams.
+        </div>
+      </div>
+
+      <div class="lead-card">
+        <div class="lead-ico">🚀</div>
+        <div class="lead-title">AI Tooling Evangelist</div>
+        <div class="lead-body">
+          Proactively introduced <strong>GenAI-based code reviews</strong> (PR Agent, QODO Merge) as a
+          mandatory first-pass step, cutting review bottlenecks and improving team velocity.
+          Introduced <strong>Cypress, JUnit5 + Mockito, Spring Boot integration tests</strong>, and
+          WaveFront observability to teams. Champions AI tool adoption (Codium, GenVocalizer) and
+          continuously identifies new AI use cases for the team.
+        </div>
+      </div>
+
+      <div class="lead-card">
+        <div class="lead-ico">🎯</div>
+        <div class="lead-title">Customer &amp; VOC Champion</div>
+        <div class="lead-body">
+          Conducted <strong>FMHs (Feedback/Mentorship/Hardship sessions)</strong> to gather real customer
+          feedback. Set up <strong>#epg-faas-feedback</strong> as a direct customer feedback channel.
+          Targeted long-standing VOCs during engineering days. Shared feedback with capability teams
+          (AppFabric, Sales Platform, TXP, IXP) to align on product improvements.
+          Collaborated with the Customer Insights early-release Gen AI tool team.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <p class="s-tag">Career</p>
+    <h2 class="s-title">Work <span class="g">Experience</span></h2>
+
+    <div class="tl">
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-role">Senior Staff Software Engineer</div>
+        <div class="tl-org">Intuit Inc. — Fintech / Lending</div>
+        <div class="tl-period">Aug 2025 – Present</div>
+        <ul class="tl-points">
+          <li>Architecting Lending-as-a-Service capability and point-of-sale financing for QBO</li>
+          <li>Launched conversational lending agent for all QBO users in immersive chat experience</li>
+          <li>Built production RAG, Graph RAG, and agentic pipelines; authored MCP servers</li>
+          <li>Data Steward &amp; API Steward for Financing Services capability</li>
+          <li>Driving architectural decisions across global teams for lending microservices</li>
+        </ul>
+        <span class="tl-tag">🤖 AI-First Architecture</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-role">Staff Software Engineer</div>
+        <div class="tl-org">Intuit Inc. — EPG + QuickBooks Accounting Automation</div>
+        <div class="tl-period">Aug 2021 – Aug 2025</div>
+        <ul class="tl-points">
+          <li>Founding engineer of EPG team — bootstrapped all infrastructure, onboarded every engineer</li>
+          <li>Built FaaS platform from scratch: B2C &amp; B2B financing at scale across QBO</li>
+          <li>Led ISV externalization: Houzz, Knowify, and others; &lt;2 month partner go-live</li>
+          <li>Built native ML + GenAI email classifier — 70% → 90% accuracy</li>
+          <li>Improved CK member match rate 16% → 23% via Resolved Identity Graph integration</li>
+          <li>Introduced PagerDuty, Cypress, Splunk dashboards, GenAI code reviews to teams</li>
+          <li>Mentored engineers and PM; drove cross-org design decisions across 10+ teams</li>
+          <li>Full-stack architect for QBAA — migrated monolith to reactive microservices</li>
+          <li>Data Steward &amp; API Steward for Accounting and Banking areas</li>
+        </ul>
+        <span class="tl-tag">🏗️ Platform · AI · Founding Engineer</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-role">Senior Software Engineer</div>
+        <div class="tl-org">Intuit Inc. — QuickBooks Data In</div>
+        <div class="tl-period">Jan 2019 – Aug 2021</div>
+        <ul class="tl-points">
+          <li>Rebuilt QBO banking page from DOJO → React/TS cutting TP99 from 17s to 8s; ~99% test coverage</li>
+          <li>Introduced service-layer architecture pattern adopted across the org</li>
+          <li>Led mission-critical Square integration across mobile, receipts, and D&amp;P teams</li>
+          <li>Designed bulk transactions and accept/match flows on Stage platform</li>
+          <li>Coached and mentored engineers across the org; Key Gatekeeper for banking monolith releases</li>
+        </ul>
+        <span class="tl-tag">⚡ Performance &amp; Integration</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-role">Software Engineer I &amp; II</div>
+        <div class="tl-org">Intuit Inc. — QuickBooks Bank Feeds</div>
+        <div class="tl-period">Feb 2017 – Dec 2018</div>
+        <ul class="tl-points">
+          <li>Shipped proactive FI downtime notifications — significantly reduced customer care call volume</li>
+          <li>Conceived and shipped cash flow insights ML feature to production in under 30 days</li>
+          <li>Improved API performance with optimized data structures and caching</li>
+          <li>Led UI automation and performance test suites for QE-to-PD transition</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-role">Software Engineer Intern — Developer Programs</div>
+        <div class="tl-org">ServiceNow Inc.</div>
+        <div class="tl-period">Jan 2016 – Dec 2016</div>
+        <ul class="tl-points">
+          <li>Built automation frameworks and reusable utilities in Java &amp; JavaScript (Snow Scripting)</li>
+          <li>Created regression test suite using Selenium; built internal API automation framework</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-role">Systems Engineer</div>
+        <div class="tl-org">Infosys Technologies Limited · Hyderabad, India</div>
+        <div class="tl-period">Feb 2013 – Dec 2014</div>
+        <ul class="tl-points">
+          <li>Developed ETL jobs pulling data across Walmart stores into HDFS</li>
+          <li>Wrote complex SQL queries supporting Walmart Legal Team data extraction</li>
+          <li>Contributed to educational portal for Infosys training system</li>
+        </ul>
+        <span class="tl-tag">🏅 Valuable Player Award</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<!-- PATENTS -->
+<section id="patents">
+  <div class="wrap">
+    <p class="s-tag">Intellectual Property</p>
+    <h2 class="s-title">US <span class="g">Patents</span></h2>
+    <p class="s-sub">Recognized inventor across AI/LLM onboarding and personalization systems — 2 granted, 1 filed.</p>
+
+    <div class="pat-grid">
+      <div class="pat-card">
+        <div class="pat-status st-g">✓ Granted</div>
+        <div class="pat-num">US12579159B2</div>
+        <div class="pat-title">File Extraction and Vectorization for Onboarding with LLM</div>
+        <div class="pat-desc">Intelligently extracts and vectorizes documents to accelerate LLM-based onboarding — a foundational technique for RAG pipelines. Emerged from Solopreneur GenAI onboarding GED project.</div>
+      </div>
+      <div class="pat-card">
+        <div class="pat-status st-g">✓ Granted</div>
+        <div class="pat-num">US11972302B1</div>
+        <div class="pat-title">User-Aware Request Processing in Application Services</div>
+        <div class="pat-desc">A personalization system that dynamically adapts application service responses based on user context and preferences, reducing friction and improving relevance at scale.</div>
+      </div>
+      <div class="pat-card">
+        <div class="pat-status st-f">⏳ Filed</div>
+        <div class="pat-num">PR-2614180US</div>
+        <div class="pat-title">Securely Serving Personalized Third-Party Content</div>
+        <div class="pat-desc">System and method for securely delivering personalized third-party content within applications, balancing personalization with privacy and security requirements.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="wrap">
+    <p class="s-tag">What Others Say</p>
+    <h2 class="s-title">Peer &amp; Manager <span class="g">Feedback</span></h2>
+
+    <div class="test-grid">
+      <div class="test-card">
+        <p class="test-body">
+          "Murthy is a <strong>swiss army knife</strong>. Whenever we have a project that needs to be staffed
+          and no one else has the skills to do it, Murthy steps in. It allows our small team to continue
+          to operate at the velocity that is required. <strong>His impact for each project is unparalleled
+          vs. other teammates.</strong> It's Murthy's second nature."
+        </p>
+        <div class="test-author">Peer Feedback, Intuit</div>
+        <div class="test-role">Promotion Assessment · 2025</div>
+      </div>
+      <div class="test-card">
+        <p class="test-body">
+          "Murthy is my indispensable <strong>go-to person for any task</strong>. I trust implicitly
+          that he will either complete it swiftly and effectively or expertly guide someone else on
+          the team to do so. His reliability and problem-solving skills are invaluable —
+          <strong>a cornerstone of our team's success.</strong>"
+        </p>
+        <div class="test-author">Manager, Intuit EPG Team</div>
+        <div class="test-role">Promotion Assessment · 2025</div>
+      </div>
+      <div class="test-card">
+        <p class="test-body">
+          "He can tackle <strong>any problem our team has</strong>. Given we are an incubation team,
+          the span of challenges are numerous — front-end, back-end, cross-system design.
+          Murthy tackles it all. <strong>No one on the EPG team had the skill set to do the work
+          and Murthy stepped in</strong> to learn and do it given the importance to our team's goals."
+        </p>
+        <div class="test-author">Peer, Intuit EPG Team</div>
+        <div class="test-role">Promotion Assessment · 2025</div>
+      </div>
+      <div class="test-card">
+        <p class="test-body">
+          "Murthy's towering strength lies in his ability to drive impactful initiatives from
+          <strong>conception to successful delivery with exceptional efficiency and quality</strong>.
+          He embodies speed of execution, depth of knowledge, full-stack capabilities, and a strong
+          can-do attitude — all while <strong>actively mentoring and supporting his team members.</strong>"
+        </p>
+        <div class="test-author">Manager Assessment, Intuit</div>
+        <div class="test-role">Promotion Assessment · 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<!-- RECOGNITION -->
+<section id="recognition">
+  <div class="wrap">
+    <p class="s-tag">Achievements</p>
+    <h2 class="s-title">Recognition &amp; <span class="g">Awards</span></h2>
+
+    <div class="rec-grid">
+      <div class="rec-card">
+        <div class="rec-ico">🥇</div>
+        <div class="rec-title">PayPal Opportunity Hack — 1st Place</div>
+        <div class="rec-body">Won PayPal's global hackathon with ANDE Connect — a platform connecting entrepreneurs in emerging markets with financial tools and mentors. July 2016.</div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-ico">🎤</div>
+        <div class="rec-title">QBConnect &amp; SOC Presenter</div>
+        <div class="rec-body">Accounting Templates demoed at QBConnect; Solopreneur GenAI Onboarding demoed at SOC — both received company-wide recognition. Patent filed for the onboarding concept.</div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-ico">🏗️</div>
+        <div class="rec-title">Founding Engineer — EPG Team</div>
+        <div class="rec-body">Bootstrapped Intuit's Emerging Products Group from zero. Built all dev infrastructure, onboarded every team member, and launched a multi-product financing platform.</div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-ico">🥈</div>
+        <div class="rec-title">Silver Medal — First in Engineering Batch</div>
+        <div class="rec-body">Awarded Silver Medal for finishing first in Engineering batch at JNTU Hyderabad. Academic excellence with 3.9/4.0 GPA across both degrees.</div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-ico">☁️</div>
+        <div class="rec-title">Microsoft Azure Certified Specialist</div>
+        <div class="rec-body">Certified Microsoft Specialist in Windows Azure, demonstrating early cloud proficiency.</div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-ico">🏅</div>
+        <div class="rec-title">Infosys Valuable Player Award</div>
+        <div class="rec-body">Recognized as Valuable Player at Infosys Technologies for outstanding contributions to Walmart data engineering and team delivery.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <p class="s-tag">Education</p>
+    <h2 class="s-title">Academic <span class="g">Background</span></h2>
+
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-ico">🎓</div>
+        <div>
+          <div class="edu-degree">Master of Science — Software Engineering</div>
+          <div class="edu-school">San Jose State University, CA</div>
+          <div class="edu-det">Dec 2016</div>
+          <div class="edu-gpa">GPA 3.9 / 4.0</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-ico">🏛️</div>
+        <div>
+          <div class="edu-degree">Bachelor of Engineering — Electronics &amp; Communication</div>
+          <div class="edu-school">JNTU Hyderabad, India</div>
+          <div class="edu-det">May 2012 · 🥈 Silver Medal — First in Batch</div>
+          <div class="edu-gpa">GPA 3.9 / 4.0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap" style="max-width:620px;margin:0 auto;text-align:center">
+    <p class="s-tag" style="text-align:center">Let's Talk</p>
+    <h2 class="s-title" style="text-align:center"><span class="g">Get in Touch</span></h2>
+    <div class="contact-links">
+      <a href="mailto:amgabbiti@gmail.com" class="clink">📧 amgabbiti@gmail.com</a>
+      <a href="tel:4089315095" class="clink">📞 408-931-5095</a>
+      <a href="https://www.linkedin.com/in/murthygabbiti" target="_blank" class="clink">💼 LinkedIn</a>
+      <a href="https://patents.google.com/patent/US12579159B2" target="_blank" class="clink">📜 Patents</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Anjaneya Murthy Gabbiti · Senior Staff Software Engineer · Livermore, CA</p>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.07 });
+
+  document.querySelectorAll(
+    '.p-card,.impact-block,.proj-card,.lead-card,.tl-item,.pat-card,.test-card,.rec-card,.edu-card,.pillar'
+  ).forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = `opacity 0.5s ease ${(i % 4) * 0.08}s, transform 0.5s ease ${(i % 4) * 0.08}s`;
+    io.observe(el);
+  });
+
+  const secs = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    secs.forEach(s => { if (window.scrollY >= s.offsetTop - 140) cur = s.id; });
+    links.forEach(a => { a.style.color = a.getAttribute('href') === `#${cur}` ? 'var(--accent2)' : ''; });
+  });
+</script>
+</body>
+</html>
