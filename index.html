@@ -128,9 +128,18 @@ section{padding:5.5rem 2rem}
 .p-lbl{font-size:.75rem;color:var(--muted);letter-spacing:.04em;line-height:1.5}
 #about{background:var(--bg)}
 .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:4rem;align-items:start}
-.about-lead{font-size:1.05rem;line-height:1.95;color:var(--text2)}
-.about-lead p+p{margin-top:1rem}
-.about-lead strong{color:var(--text);font-weight:600}
+/* About — magazine prose layout */
+.about-lede{font-size:1.3rem;line-height:1.55;color:var(--text);font-weight:500;letter-spacing:-.005em;margin-bottom:2rem;padding-bottom:1.8rem;border-bottom:1px solid var(--border)}
+.about-lede strong{color:var(--text);font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.about-chapter{margin-bottom:1.8rem}
+.about-chapter:last-child{margin-bottom:0}
+.about-chapter-label{display:inline-flex;align-items:center;gap:.5rem;font-size:.65rem;text-transform:uppercase;letter-spacing:.13em;color:var(--accent2);font-weight:700;margin-bottom:.7rem}
+.about-chapter-label::before{content:'';display:inline-block;width:18px;height:1px;background:var(--accent2)}
+.about-chapter-body{font-size:.98rem;line-height:1.85;color:var(--text2)}
+.about-chapter-body strong{color:var(--text);font-weight:600}
+.about-chapter-body em{color:var(--text2);font-style:italic}
+.about-chapter-body p+p{margin-top:.7rem}
+.about-pull{margin-top:1.4rem;padding:.6rem 0 .6rem 1rem;border-left:2px solid var(--accent);font-size:.92rem;color:var(--text);font-weight:500;line-height:1.5}
 .quote-block{background:var(--card2);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;margin-top:1.8rem;position:relative}
 .quote-block::before{content:'"';position:absolute;top:-.2rem;left:1.2rem;font-size:4rem;color:var(--accent);opacity:.25;line-height:1;font-family:Georgia,serif}
 .quote-text{font-style:italic;color:var(--text2);font-size:.92rem;line-height:1.8;padding-top:.8rem}
@@ -388,17 +397,43 @@ footer{text-align:center;padding:1.8rem;background:var(--bg2);border-top:1px sol
     <h2 class="s-title">I build the <span class="g">AI-native systems</span><br/>small businesses run on.</h2>
     <div class="about-grid">
       <div>
-        <div class="about-lead">
-          <p>
-            I'm a Senior Staff Software Engineer with 13 years building fintech products for small businesses. Today I'm <strong>engineering tech lead on a Capital lending platform that reaches ~5M SMBs and originates $750M+ in loans annually</strong> — focused on the SMB Health charter that's reimagining underwriting transparency for the SMB segment (showing borrowers <em>which factors are affecting their borrowing power and how to improve them</em>, not just whether they qualify).
-          </p>
-          <p>
-            I architected and shipped <strong>6+ lending-domain MCP tools</strong> — loan offers, loan servicing, peer offers, peer lending factors, lending help, and IBCC FAQs — exposed through both an in-product immersive chat experience and third-party consumer AI surfaces. Among the first financial products live inside both <strong>Anthropic Claude</strong> and <strong>ChatGPT</strong>. The chat channel is currently driving <strong>~$5M/month in loan application volume</strong>. I act as <strong>Data Steward and API Steward</strong> for the Financing Services capability.
-          </p>
-          <p>
-            Earlier, I was <strong>founding engineer</strong> on a Financing-as-a-Service platform — built from zero, generated ~$5M in revenue over two years, and produced the ISV externalization and identity-match patterns we still build on. My signature is taking ambiguous, cross-org problems — monolith decomposition, identity resolution, regulated agent design, underwriting transparency — and shipping them with the governance, observability, and architectural patterns that let other teams build on top. <strong>3 US patents</strong>, <strong>~15 production microservices architected</strong>, Senior Staff in 2025. Master's in Software Engineering from San Jose State (3.85 GPA).
-          </p>
+        <p class="about-lede">
+          Senior Staff Software Engineer · 13 years building fintech for small businesses. My signature: take the ambiguous, cross-org problems no one else wants — <strong>monolith decomposition, identity resolution, regulated agent design, underwriting transparency</strong> — and ship them with the patterns other teams build on top of.
+        </p>
+
+        <div class="about-chapter">
+          <div class="about-chapter-label">Now · Aug 2025 – Present</div>
+          <div class="about-chapter-body">
+            <p>
+              Engineering tech lead on a Capital lending platform reaching <strong>~5M SMBs</strong> and originating <strong>$750M+ in loans annually</strong>. Leading the SMB Health charter — reimagining underwriting transparency for the SMB segment: showing borrowers <em>which factors are affecting their borrowing power and how to improve them</em>, not just whether they qualify.
+            </p>
+            <p>
+              Architected and shipped <strong>6+ lending-domain MCP tools</strong> — loan offers, loan servicing, peer offers, peer lending factors, lending help, and IBCC FAQs — exposed through an in-product immersive chat experience and third-party consumer AI surfaces. Among the first financial products live inside both <strong>Anthropic Claude</strong> and <strong>ChatGPT</strong>; the chat channel currently drives <strong>~$5M/month in loan application volume</strong>. Acting as <strong>Data Steward and API Steward</strong> for the Financing Services capability.
+            </p>
+          </div>
         </div>
+
+        <div class="about-chapter">
+          <div class="about-chapter-label">Past Signature · 2021 – 2025</div>
+          <div class="about-chapter-body">
+            <p>
+              As Staff Engineer, led <strong>accounting monolith decomposition</strong> — designed and shipped <strong>matching, rules, and auto-recall</strong> as standalone microservices, the <em>first</em> accounting services successfully extracted from a deeply entrenched monolith. Authored the <strong>Account Purpose Mapping (APM)</strong> design — consolidated four disparate data sources (default settings, item mappings, tax mappings, workflow COA) into a unified mappings + purposes model, capacity-planned to ~50TB across ~10M companies. APM is now adopted as a capability by <strong>payroll, banking, and fixed-asset-management</strong> teams across the SMB accounting platform.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-chapter">
+          <div class="about-chapter-label">Foundations · 2013 – 2024</div>
+          <div class="about-chapter-body">
+            <p>
+              Founding engineer on a Financing-as-a-Service platform — built from zero, generated ~$5M in revenue over two years, and produced the ISV externalization and identity-match patterns the larger Capital business still builds on. Earlier: led a flagship banking UI rewrite cutting <strong>TP99 from 17s to 8s</strong> with ~99% test coverage; improved member identity-match rate <strong>16% → 23%</strong> via resolved identity graph; built a custom-trained ML email classifier reaching <strong>90% accuracy</strong> (up from 70% baseline).
+            </p>
+            <p>
+              <strong>3 US patents</strong>, <strong>~15 production microservices architected</strong>, Senior Staff in 2025. Master's in Software Engineering from San Jose State (3.85 GPA).
+            </p>
+          </div>
+        </div>
+
         <div class="quote-block">
           <p class="quote-text">
             "Murthy drives initiatives from conception to delivery with exceptional efficiency and quality — speed of execution, depth of knowledge, full-stack capabilities, and a can-do attitude — all while actively mentoring his team."
@@ -509,6 +544,13 @@ footer{text-align:center;padding:1.8rem;background:var(--bg2);border-top:1px sol
         </div>
       </div>
       <div class="impact-block">
+        <div class="ib-ico">📒</div>
+        <div class="ib-title">Accounting Automation &amp; Monolith Decomposition</div>
+        <div class="ib-body">
+          Designed and shipped <strong>matching, rules, and auto-recall</strong> out of a deeply entrenched accounting monolith as standalone microservices on the staging platform — the <strong>first accounting services successfully extracted</strong> from this monolith. Decomposing it is one of the org's hardest engineering problems; these services proved the pattern. Authored the <strong>Account Purpose Mapping (APM) design</strong> — consolidated Prefs_1, Item Mappings, Tax Mappings, and Workflow COA data sources into one unified <strong>mappings + purposes</strong> model with capacity planning to ~50TB across 10M companies. <strong>APM is now adopted as a capability by payroll, banking, and fixed-asset-management teams</strong> across the SMB accounting platform.
+        </div>
+      </div>
+      <div class="impact-block">
         <div class="ib-ico">🔌</div>
         <div class="ib-title">Third-Party Integrations &amp; ISV Externalization</div>
         <div class="ib-body">
@@ -542,6 +584,104 @@ footer{text-align:center;padding:1.8rem;background:var(--bg2);border-top:1px sol
     <h2 class="s-title">Projects &amp; <span class="g">Deliveries</span></h2>
     <p class="s-sub">A cross-section of technically significant projects spanning AI systems, fintech architecture, and platform engineering. Specific product names and partners are abstracted for confidentiality.</p>
     <div class="proj-grid">
+
+      <!-- Lending on Chat — HEADLINE 1 (Current) -->
+      <div class="proj-card span2">
+        <div class="proj-header">
+          <div class="proj-ico">🤖</div>
+          <div class="proj-meta-right">
+            <div class="proj-badges">
+              <span class="badge b-ai">Headline · Current</span>
+              <span class="badge b-ai">Agentic AI</span>
+              <span class="badge b-ai">MCP Servers</span>
+              <span class="badge b-arch">Lending</span>
+            </div>
+            <div class="proj-title">Lending on Chat — 6+ MCP Tools Live on Claude &amp; ChatGPT</div>
+            <div class="proj-org">Senior Staff Engineer · Sr Staff Tech Lead · Aug 2025 – Present</div>
+          </div>
+        </div>
+        <div class="proj-desc">
+          Designed and shipped <strong>6+ lending-domain MCP tools</strong> spanning <strong>loan offers, loan servicing, peer offers, peer lending factors, lending help, and IBCC FAQs</strong> — exposed through a Lending MCP server that powers both an in-product immersive chat experience (rolled to 100%) and <strong>third-party AI surfaces</strong>. Among the first financial-product tools surfaced inside both <strong>Anthropic Claude</strong> and <strong>ChatGPT</strong> as MCP servers (Peer Offers skill live in production on both). Driving <strong>~$5M/month in loan-application volume</strong> through chat surfaces at an early-signal traffic rate of <strong>~300 queries/week</strong>. Built tools as <strong>read-only with strict server-side eligibility</strong> (signed-in, DDA-connected, ≥60% approval odds, ≥100-business peer cohort) and full compliance guardrails enforcing the inform-don't-transact servicing-license boundary. Authored the loan-servicing skill PRD with intent-to-field routing, multi-draw isolation, plain-language status translation, and a golden eval set with ≥7 query classes registered for L1 regression. Acting as <strong>Data Steward and API Steward</strong> for the Financing Services capability.
+        </div>
+        <div class="proj-note">Production architecture, eval methodology, guardrail design, and cohort-eligibility logic available on request under NDA.</div>
+        <div class="kpis">
+          <div class="kpi"><span class="kpi-v">6+</span><span class="kpi-l">MCP tools in production</span></div>
+          <div class="kpi"><span class="kpi-v">$5M/mo</span><span class="kpi-l">Loan volume via chat</span></div>
+          <div class="kpi"><span class="kpi-v">~300/wk</span><span class="kpi-l">Chat queries</span></div>
+          <div class="kpi"><span class="kpi-v">100%</span><span class="kpi-l">In-product rollout</span></div>
+        </div>
+        <div class="tech-row">
+          <span class="tp">MCP Servers</span><span class="tp">Claude</span><span class="tp">ChatGPT MCP</span>
+          <span class="tp">RAG</span><span class="tp">Graph RAG</span>
+          <span class="tp">Agentic Workflows</span><span class="tp">Spring Boot</span>
+          <span class="tp">Kafka</span><span class="tp">Cassandra</span>
+          <span class="tp">Python</span><span class="tp">Kotlin</span>
+          <span class="tp">Eval Harness</span><span class="tp">Guardrails</span>
+        </div>
+      </div>
+
+      <!-- SMB Health Charter — HEADLINE 2 (Current Platform) -->
+      <div class="proj-card span2">
+        <div class="proj-header">
+          <div class="proj-ico">📊</div>
+          <div class="proj-meta-right">
+            <div class="proj-badges">
+              <span class="badge b-fin">Headline · Current</span>
+              <span class="badge b-arch">Underwriting</span>
+              <span class="badge b-ai">Cross-Functional</span>
+            </div>
+            <div class="proj-title">SMB Health — Reimagining Borrowing Power for Small Businesses</div>
+            <div class="proj-org">Senior Staff Engineer · Sr Staff Tech Lead · Aug 2025 – Present</div>
+          </div>
+        </div>
+        <div class="proj-desc">
+          Engineering tech lead on the <strong>SMB Health</strong> charter inside the Capital lending platform — a business that reaches <strong>~5M small businesses</strong> and originates <strong>$750M+ in loans annually</strong>. The charter's premise: make borrowing power <em>visible and improvable</em> — show SMBs not just whether they qualify for a loan, but <strong>which factors are affecting their borrowing power and how to improve them</strong>. This is effectively reimagining classic underwriting transparency principles for the SMB segment. Partnered cross-functionally with <strong>Policy, Data Science, Data Engineering, UX, and UI teams</strong> across 5 concurrent workstreams shipping in 2026: <strong>Lending Overview Redesign, Offer Transparency, Peer Offers Claims, Peer Lending Factors,</strong> and <strong>OMNI / 3rd-Party AI integration</strong>. Authored the SMB Health: Peer Factors and Peer Offers Architecture Technical Decision document — adopted approach uses dedicated batch + serving pipelines on Databricks and DynamoDB with strict domain boundaries from prospecting.
+        </div>
+        <div class="kpis">
+          <div class="kpi"><span class="kpi-v">~5M</span><span class="kpi-l">SMBs on platform</span></div>
+          <div class="kpi"><span class="kpi-v">$750M+</span><span class="kpi-l">Originations / yr</span></div>
+          <div class="kpi"><span class="kpi-v">5</span><span class="kpi-l">Workstreams</span></div>
+          <div class="kpi"><span class="kpi-v">6+</span><span class="kpi-l">Cross-functional teams</span></div>
+          <div class="kpi"><span class="kpi-v">≥60%</span><span class="kpi-l">Approval-odds floor</span></div>
+        </div>
+        <div class="tech-row">
+          <span class="tp">Spring Boot</span><span class="tp">Databricks</span><span class="tp">DynamoDB</span>
+          <span class="tp">Kafka</span><span class="tp">AWS</span><span class="tp">RAG</span>
+          <span class="tp">DDA Signals</span><span class="tp">Risk Modeling</span>
+        </div>
+      </div>
+
+      <!-- Accounting Automation & Monolith Decomposition -->
+      <div class="proj-card span2">
+        <div class="proj-header">
+          <div class="proj-ico">📒</div>
+          <div class="proj-meta-right">
+            <div class="proj-badges">
+              <span class="badge b-arch">Headline · Past Signature Work</span>
+              <span class="badge b-arch">Monolith Decomposition</span>
+              <span class="badge b-fin">Accounting</span>
+            </div>
+            <div class="proj-title">Accounting Automation — First Services Extracted from the Monolith</div>
+            <div class="proj-org">Staff Engineer · Accounting Automation &amp; Ledger Platform · 2021–2024</div>
+          </div>
+        </div>
+        <div class="proj-desc">
+          Designed and shipped <strong>matching, rules, and auto-recall</strong> out of a deeply entrenched accounting monolith as standalone microservices on the staging platform. Decomposing this monolith is widely considered one of the org's hardest engineering problems — these were the <strong>first accounting services successfully extracted</strong>, and the pattern became the reference template for subsequent extractions. Authored the <strong>Account Purpose Mapping (APM) design</strong> — consolidated four disparate data sources (Prefs_1 default-settings table, Item Mappings, Tax Mappings, Workflow COA) into one unified <strong>mappings + purposes</strong> model. Did capacity planning for ~5K rows/company × ~10M companies (~50TB projection); evaluated Postgres vs. DynamoDB and landed on Postgres with referential keys and cascading deletes. <strong>APM is now adopted as a capability by payroll, banking, and fixed-asset-management teams</strong> across the SMB accounting platform.
+        </div>
+        <div class="proj-note"><strong>Supporting accounting work in the same tenure:</strong> accountant templates (presented at the flagship customer conference) · accounting ledger service backend decomposition · accounting rebranding UI. APM and Rules Service architecture decision documents available on request under NDA.</div>
+        <div class="kpis">
+          <div class="kpi"><span class="kpi-v">FIRST</span><span class="kpi-l">Services extracted from accounting monolith</span></div>
+          <div class="kpi"><span class="kpi-v">3</span><span class="kpi-l">Capabilities now adopt APM (payroll · banking · FAM)</span></div>
+          <div class="kpi"><span class="kpi-v">4→1</span><span class="kpi-l">APM table consolidation</span></div>
+          <div class="kpi"><span class="kpi-v">~50TB</span><span class="kpi-l">APM capacity plan (~10M companies)</span></div>
+        </div>
+        <div class="tech-row">
+          <span class="tp">Spring Boot</span><span class="tp">Kafka</span><span class="tp">PostgreSQL</span>
+          <span class="tp">DynamoDB</span><span class="tp">CDC Events</span>
+          <span class="tp">Domain-Driven Design</span><span class="tp">Event-Driven</span>
+          <span class="tp">React</span><span class="tp">TypeScript</span>
+        </div>
+      </div>
 
       <!-- FaaS -->
       <div class="proj-card span2">
@@ -643,71 +783,6 @@ footer{text-align:center;padding:1.8rem;background:var(--bg2);border-top:1px sol
         <div class="tech-row">
           <span class="tp">Identity Graph</span><span class="tp">Spring Boot</span>
           <span class="tp">REST</span><span class="tp">Cross-team</span>
-        </div>
-      </div>
-
-      <!-- SMB Health Charter -->
-      <div class="proj-card span2">
-        <div class="proj-header">
-          <div class="proj-ico">📊</div>
-          <div class="proj-meta-right">
-            <div class="proj-badges">
-              <span class="badge b-fin">Tech Lead · Current</span>
-              <span class="badge b-arch">Underwriting</span>
-              <span class="badge b-ai">Cross-Functional</span>
-            </div>
-            <div class="proj-title">SMB Health — Reimagining Borrowing Power for Small Businesses</div>
-            <div class="proj-org">Senior Staff Engineer · Sr Staff Tech Lead · Aug 2025 – Present</div>
-          </div>
-        </div>
-        <div class="proj-desc">
-          Engineering tech lead on the <strong>SMB Health</strong> charter inside the Capital lending platform — a business that reaches <strong>~5M small businesses</strong> and originates <strong>$750M+ in loans annually</strong>. The charter's premise: make borrowing power <em>visible and improvable</em> — show SMBs not just whether they qualify for a loan, but <strong>which factors are affecting their borrowing power and how to improve them</strong>. This is effectively reimagining classic underwriting transparency principles for the SMB segment. Partnered cross-functionally with <strong>Policy, Data Science, Data Engineering, UX, and UI teams</strong> across 5 concurrent workstreams shipping in 2026: <strong>Lending Overview Redesign, Offer Transparency, Peer Offers Claims, Peer Lending Factors,</strong> and <strong>OMNI / 3rd-Party AI integration</strong>. Authored the SMB Health: Peer Factors and Peer Offers Architecture Technical Decision document — adopted approach uses dedicated batch + serving pipelines on Databricks and DynamoDB with strict domain boundaries from prospecting.
-        </div>
-        <div class="kpis">
-          <div class="kpi"><span class="kpi-v">~5M</span><span class="kpi-l">SMBs on platform</span></div>
-          <div class="kpi"><span class="kpi-v">$750M+</span><span class="kpi-l">Originations / yr</span></div>
-          <div class="kpi"><span class="kpi-v">5</span><span class="kpi-l">Workstreams</span></div>
-          <div class="kpi"><span class="kpi-v">6+</span><span class="kpi-l">Cross-functional teams</span></div>
-          <div class="kpi"><span class="kpi-v">≥60%</span><span class="kpi-l">Approval-odds floor</span></div>
-        </div>
-        <div class="tech-row">
-          <span class="tp">Spring Boot</span><span class="tp">Databricks</span><span class="tp">DynamoDB</span>
-          <span class="tp">Kafka</span><span class="tp">AWS</span><span class="tp">RAG</span>
-          <span class="tp">DDA Signals</span><span class="tp">Risk Modeling</span>
-        </div>
-      </div>
-
-      <!-- Lending Agent + MCP -->
-      <div class="proj-card span2">
-        <div class="proj-header">
-          <div class="proj-ico">🤖</div>
-          <div class="proj-meta-right">
-            <div class="proj-badges">
-              <span class="badge b-ai">Agentic AI</span>
-              <span class="badge b-ai">MCP Servers</span>
-              <span class="badge b-arch">Lending</span>
-            </div>
-            <div class="proj-title">Lending on Chat — 6+ MCP Tools Live on Claude &amp; ChatGPT</div>
-            <div class="proj-org">Senior Staff Engineer · Sr Staff Tech Lead · Aug 2025 – Present</div>
-          </div>
-        </div>
-        <div class="proj-desc">
-          Designed and shipped <strong>6+ lending-domain MCP tools</strong> spanning <strong>loan offers, loan servicing, peer offers, peer lending factors, lending help, and IBCC FAQs</strong> — exposed through a Lending MCP server that powers both an in-product immersive chat experience (rolled to 100%) and <strong>third-party AI surfaces</strong>. Among the first financial-product tools surfaced inside both <strong>Anthropic Claude</strong> and <strong>ChatGPT</strong> as MCP servers (Peer Offers skill live in production on both). Driving <strong>~$5M/month in loan-application volume</strong> through chat surfaces at an early-signal traffic rate of <strong>~300 queries/week</strong>. Built tools as <strong>read-only with strict server-side eligibility</strong> (signed-in, DDA-connected, ≥60% approval odds, ≥100-business peer cohort) and full compliance guardrails enforcing the inform-don't-transact servicing-license boundary. Authored the loan-servicing skill PRD with intent-to-field routing, multi-draw isolation, plain-language status translation, and a golden eval set with ≥7 query classes registered for L1 regression. Acting as <strong>Data Steward and API Steward</strong> for the Financing Services capability.
-        </div>
-        <div class="proj-note">Production architecture, eval methodology, guardrail design, and cohort-eligibility logic available on request under NDA.</div>
-        <div class="kpis">
-          <div class="kpi"><span class="kpi-v">6+</span><span class="kpi-l">MCP tools in production</span></div>
-          <div class="kpi"><span class="kpi-v">$5M/mo</span><span class="kpi-l">Loan volume via chat</span></div>
-          <div class="kpi"><span class="kpi-v">~300/wk</span><span class="kpi-l">Chat queries</span></div>
-          <div class="kpi"><span class="kpi-v">100%</span><span class="kpi-l">In-product rollout</span></div>
-        </div>
-        <div class="tech-row">
-          <span class="tp">MCP Servers</span><span class="tp">Claude</span><span class="tp">ChatGPT MCP</span>
-          <span class="tp">RAG</span><span class="tp">Graph RAG</span>
-          <span class="tp">Agentic Workflows</span><span class="tp">Spring Boot</span>
-          <span class="tp">Kafka</span><span class="tp">Cassandra</span>
-          <span class="tp">Python</span><span class="tp">Kotlin</span>
-          <span class="tp">Eval Harness</span><span class="tp">Guardrails</span>
         </div>
       </div>
 
@@ -882,14 +957,15 @@ footer{text-align:center;padding:1.8rem;background:var(--bg2);border-top:1px sol
         <div class="tl-org">Emerging Products + Accounting Automation</div>
         <div class="tl-period">Aug 2021 – Aug 2025</div>
         <ul class="tl-points">
-          <li>Founding engineer — bootstrapped all infrastructure and onboarded every engineer</li>
-          <li>Built Financing-as-a-Service platform from scratch: B2C &amp; B2B financing at scale</li>
-          <li>Led ISV externalization with multiple named SMB-software partners; &lt;2 month go-live</li>
+          <li>Founding engineer on Financing-as-a-Service — bootstrapped all infrastructure, onboarded every engineer; ~$5M revenue over 2 years</li>
+          <li>Led ISV externalization with multiple named SMB-software partners (Houzz, Knowify); &lt;2 month go-live</li>
+          <li><strong>Accounting monolith decomposition</strong> — designed and shipped <strong>matching, rules, and auto-recall</strong> as standalone microservices; the <strong>first accounting services successfully extracted</strong> from the monolith</li>
+          <li><strong>Authored the Account Purpose Mapping (APM) design</strong> — unified four accounting data sources; now adopted by payroll, banking, and fixed-asset-management capabilities</li>
+          <li>Supporting accounting work: accountant templates (flagship customer conference), accounting ledger service backend decomposition, accounting rebranding UI</li>
           <li>Built custom-trained ML + GenAI email classifier — 70% → 90% accuracy</li>
           <li>Improved member identity-match rate 16% → 23% via resolved identity graph</li>
           <li>Introduced on-call tooling, Cypress, log dashboards, and GenAI PR reviews</li>
           <li>Mentored engineers and a PM; drove cross-org design decisions across 10 teams</li>
-          <li>Full-stack architect — migrated a monolith to reactive microservices</li>
           <li>Data Steward &amp; API Steward for Accounting and Banking areas</li>
         </ul>
         <span class="tl-tag">🏗️ Platform · AI · Founding Engineer</span>
